@@ -13,10 +13,10 @@ from openai import OpenAI
 
 parser = optparse.OptionParser()
 
-parser.add_option("-i", "--image", dest="image", help="Image to process")
+parser.add_option("-i", "--input", dest="image", help="Image to process")
 parser.add_option("-o", "--output", dest="output", help="Output file")
 
-args = parser.parse_args()
+args, args2 = parser.parse_args()
 
 image = cv2.imread(args.image)
 
@@ -121,14 +121,14 @@ with open("annotations.json", "w") as f:
 with open("annotations.json", "r") as f:
     annotations = json.load(f)
 
-annotated_image = cv2.imread(args.image)
+annotated_image = cv2.imread(.image)
 
 width, height = annotated_image.shape[1], annotated_image.shape[0]
 
 
-with open(args.output, "w") as f:
+with open(.output, "w") as f:
     f.write(
-        f"""<div class="image-container"><img src="{args.image}" height="{height}" width="{width}">
+        f"""<div class="image-container"><img src="{.image}" height="{height}" width="{width}">
         
 <svg width="{width}" height="{height}">"""
     )
