@@ -121,14 +121,14 @@ with open("annotations.json", "w") as f:
 with open("annotations.json", "r") as f:
     annotations = json.load(f)
 
-annotated_image = cv2.imread(.image)
+annotated_image = cv2.imread(args.image)
 
 width, height = annotated_image.shape[1], annotated_image.shape[0]
 
 
-with open(.output, "w") as f:
+with open(args.output, "w") as f:
     f.write(
-        f"""<div class="image-container"><img src="{.image}" height="{height}" width="{width}">
+        f"""<div class="image-container"><img src="{args.image}" height="{height}" width="{width}">
         
 <svg width="{width}" height="{height}">"""
     )
